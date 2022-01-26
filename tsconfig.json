@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ESNext",
+    "sourceMap": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "useDefineForClassFields": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "types": ["@types/node", "@types/jest"],
+    "noEmitOnError": true,
+    "jsx": "preserve",
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@configs/*": ["configs/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist", "**/*.stories.ts"]
+}

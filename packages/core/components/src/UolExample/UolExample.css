@@ -1,0 +1,74 @@
+/**
+/* Predicible class naming conventions
+/*
+/* uol = namespace of library (each package will have a namespace)
+/* c = idicates a component (see https://gist.github.com/spacedawwwg/8bae57e57d288f75cffec7761d6a1bbb)
+/* example = name of component (one-to-three words)
+**/
+.uol-c-example {
+  /* using global custom properties */
+  padding: var(--space-x-3) var(--space-x-3);
+
+  /* use pixels for measurements (will be converted to rem by PostCSS) */
+  border: 1px solid var(--color-neutral-black);
+
+  /* using global custom property with fallback value */
+  color: var(--color-neutral-black, #000);
+
+  /* status selectors can be nested */
+  &.has-increased {
+    color: red;
+  }
+}
+
+/* new blocks should not be nested */
+.uol-c-example__intro {
+  /* psuedo elements can be nested */
+  &::after {
+    display: inline-block;
+    content: "🥳";
+  }
+}
+
+/* new blocks should not be nested */
+.uol-c-example__button {
+  display: flex;
+  padding: var(--space-y-3) var(--space-x-3);
+
+  /* use pixels for measurements (will be converted to rem by PostCSS) */
+  border: 1px solid var(--color-neutral-black);
+
+  /* using global custom property with fallback value */
+  background-color: var(--color-neutral-white, #fff);
+
+  /* using global custom properties */
+  gap: var(--space-x-1);
+
+  /* psuedo selectors can be nested */
+  &:hover {
+    background-color: yellow;
+  }
+
+  /* media queries can be nested */
+  @media (--screen-md-min) {
+    padding: var(--space-y-5) var(--space-x-5);
+  }
+}
+
+/* sibling selector should not be nested */
+.uol-c-example__intro + .uol-c-example__button {
+  margin-top: var(--space-y-4);
+}
+
+/* new blocks should not be nested */
+.uol-c-example__label {
+  /* example of nested/local custom property */
+  --example-label-color: black;
+
+  color: var(--example-label-color);
+
+  /* media queries can be nested */
+  @media (--screen-md-min) {
+    --example-label-color: blue;
+  }
+}

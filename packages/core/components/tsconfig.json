@@ -1,0 +1,30 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declarationDir": "./dist/types",
+    "declaration": true,
+    "declarationMap": true,
+    "isolatedModules": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "noImplicitAny": false,
+    "outDir": "dist",
+    "paths": {
+      "~/*": ["./src/*"],
+      "@project-name/core-assets/icons/functional/block/*": ["../assets/icons/functional/block/*"]
+    },
+    "types": ["vite/client"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "**/*.fixture.ts",
+    "**/*.stories.ts"
+  ],
+  "vueCompilerOptions": {
+    "experimentalExposeScriptSetupContext": true
+  }
+}

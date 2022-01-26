@@ -1,0 +1,48 @@
+{
+  "name": "@project-name/core-components",
+  "version": "0.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "description": "Vue.js component library used to build websites and applications for Project Name.",
+  "scripts": {
+    "build": "yarn clean && vue-tsc --noEmit && vite build && yarn build:types",
+    "build:types": "vue-tsc --declaration --emitDeclarationOnly",
+    "clean": "rimraf dist",
+    "dev": "yarn build --watch",
+    "lint": "eslint './src/**/*.{ts,tsx,js,jsx,vue}'",
+    "lint:fix": "eslint --fix './src/**/*.{ts,tsx,js,jsx,vue}'",
+    "test": "jest unit.test.ts"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/components.es.js",
+      "require": "./dist/components.umd.js"
+    },
+    "./types": "./dist/types",
+    "./css": "./dist/style.css",
+    "./*": "./src/*"
+  },
+  "main": "./dist/components.umd.js",
+  "module": "./dist/components.es.js",
+  "style": "./dist/style.css",
+  "types": "./dist/types",
+  "sideEffects": false,
+  "dependencies": {
+    "@jest/globals": "^27.4.6",
+    "@vitejs/plugin-vue": "^2.1.0",
+    "@vue/test-utils": "next",
+    "defu": "^5.0.1",
+    "vite": "^2.7.13",
+    "vite-tsconfig-paths": "^3.3.17",
+    "vue": "^3.2.16"
+  },
+  "devDependencies": {
+    "@vue/vue3-jest": "^27.0.0-alpha.4",
+    "eslint": "^8.7.0",
+    "jest": "^27.4.7",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.66.1",
+    "typescript": "^4.5.5",
+    "vue-tsc": "^0.31.1"
+  }
+}

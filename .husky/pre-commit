@@ -1,0 +1,14 @@
+#!/bin/bash
+sh "$(dirname "$0")/_/husky.sh"
+
+## Enforce branch naming conventions
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+REGEX="^([A-Z]+-[0-9]+)?[a-z0-9][a-z0-9\-]*$"
+
+if [[ ! $BRANCH =~ $REGEX ]]; then
+  echo "Your commit was rejected due to branching name"
+  echo "Please rename your branch with $REGEX syntax"
+  exit 1
+fi
+
+DEBUG=eslint:cli-engine yarn lint:all && yarn lint:styles
